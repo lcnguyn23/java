@@ -64,7 +64,7 @@
 	</nav>
 	<table width="1000" align="center">
 		<tr>
-			<td width="200" valign="top">
+			<td width="400" valign="top">
 				<table>
 					<%
 					ArrayList<loaibean> dsloai = new ArrayList<>();
@@ -82,7 +82,7 @@
 					%>
 				</table>
 			</td>
-			<td width="600" valign="top">
+			<td width="1000" valign="top">
 				<table class="table">
 
 					<%
@@ -99,7 +99,7 @@
 					  sachbean s = dssach.get(i);
 					%>
 					<tr>
-						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%>
+						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%> <br> <%=s.getTacgia() %>
 							<br> <%=s.getGia()%> <br> <a
 							href="themsach?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>&anh=<%=s.getAnh()%>">
 								<img src="buynow.jpg">
@@ -110,7 +110,7 @@
 						if (i < n) {
 						  s = dssach.get(i);
 						%>
-						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%>
+						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%> <br> <%=s.getTacgia() %>
 							<br> <%=s.getGia()%> <br> <a
 							href="themsach?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>&anh=<%=s.getAnh()%>">
 								<img src="buynow.jpg">

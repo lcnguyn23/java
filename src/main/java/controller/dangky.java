@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,12 +44,17 @@ public class dangky extends HttpServlet {
 
     if (un != null && pass != null && ht != null && dc != null) {
       khachhangbo khbo = new khachhangbo();
-      if (khbo.Kiemtra(un, pass) != 0) {
+      ArrayList<khachhangbean> dskh = khbo.getkh();
+      if (khbo.Kiemtra(un, pass) == 0) {
         khbo.ThemKH(ht, dc, sdt, email, un, pass);
-        khachhangbean kh = khbo.ktdn(un, pass);
-        session.setAttribute("kh", kh);
-        response.sendRedirect("htsachController");
+        response.sendRedirect("dangnhap.jsp");
+      } else {
+        RequestDispatcher rd = request.getRequestDispatcher("dangky.jsp?kt=1");
+        rd.forward(request, response);
       }
+    } else {
+      RequestDispatcher rd = request.getRequestDispatcher("dangky.jsp");
+      rd.forward(request, response);
     }
 
 

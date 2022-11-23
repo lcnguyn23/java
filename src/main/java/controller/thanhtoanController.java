@@ -43,7 +43,8 @@ public class thanhtoanController extends HttpServlet {
       long makh = kh.getMakh();
       long maxhd = hdbo.getmaxhd();
       hdbo.Thanhtoan(maxhd);
-      response.sendRedirect("thanhtoan.jsp");
+      response.sendRedirect("thanhtoan.jsp?kt=1");
+      session.removeAttribute("gio");
     }
   }
 

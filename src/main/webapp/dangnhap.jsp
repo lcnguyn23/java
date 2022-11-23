@@ -26,7 +26,7 @@
 				    <label for="pass">Password</label>
 				    <input name="txtpass" type="password" class="form-control" id="pass" placeholder="Password">
 				  </div>
-				  <button name="butt" type="submit" class="btn btn-default">Submit</button>
+				  <button name="butt" type="submit" class="btn btn-default">Đăng nhập</button>
 				</form>
 				<hr>
 				<button class="btn btn-default"><a href="dangky.jsp">Đăng ký</a></button>
@@ -34,6 +34,10 @@
 		</tr>
 	</table>
 	
+	<%
+	if (request.getParameter("kt") != null) {%>
+	<script>alert("Thông tin đăng nhập sai")</script> 
+	<%}%>
 
 </body>
 </html>

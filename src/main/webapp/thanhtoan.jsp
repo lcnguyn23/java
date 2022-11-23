@@ -34,7 +34,7 @@
 		      	<% } else { %>
 		      	<li><a href="htgioController">Giỏ hàng (<%=request.getAttribute("tongSach")%>)</a></li>
 		      	<%} %>
-				<li class="active"><a href="thanhtoanController">Thanh toán</a></li>
+				<li class="active"><a href="thanhtoan.jsp">Thanh toán</a></li>
 				<li><a href="lichsuController">Lịch sử mua hàng</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -91,8 +91,12 @@
 					%>
 				</table>
 				<form action="thanhtoanController" method="post">
-					<button name="abc" type="submit" value="mua">Thanh toán</button>
+					<button name="abc" type="submit" value="mua" class="ttbtn">Thanh toán</button>
 				</form> 
+				<%
+				if (request.getParameter("kt") != null) {%>
+				<h4>Thanh toán thành công!</h4>
+				<%}%>				
 			</td>
 			
 			<td width="200" valign="top">

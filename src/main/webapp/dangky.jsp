@@ -50,7 +50,10 @@
 			
 		</tr>
 		
-	
+		<%
+		if (request.getParameter("kt") != null) {%>
+		<script>alert("Tên đăng nhập bị trùng")</script> 
+		<%}%>
 		
 		
 	</table>

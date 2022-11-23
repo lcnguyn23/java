@@ -68,7 +68,7 @@
 					
 				</table>
 			</td>
-			<td width="900" valign="top">
+			<td width="2000" valign="top">
 				<table class="table">
 					<%
 					ArrayList<lichsubean> dsls = new ArrayList<>();

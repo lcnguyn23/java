@@ -49,7 +49,8 @@ public class datmuaController extends HttpServlet {
         // System.out.println(g.getMasach() +" abc");
         ctbo.Them(g.getMasach().trim(), g.getSoluong(), maxhd);
       }
-      response.sendRedirect("thanhtoanController");
+
+      response.sendRedirect("thanhtoan.jsp");
     }
 
   }
