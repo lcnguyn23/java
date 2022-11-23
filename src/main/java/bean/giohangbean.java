@@ -6,17 +6,18 @@ public class giohangbean {
   private long gia;
   private long soluong;
   private long thanhtien;
-
+  private String anh;
 
   public giohangbean() {
     super();
     // TODO Auto-generated constructor stub
   }
 
-  public giohangbean(String masach, String tensach, long gia, long soluong) {
+  public giohangbean(String masach, String tensach, String anh, long gia, long soluong) {
     super();
     this.masach = masach;
     this.tensach = tensach;
+    this.anh = anh;
     this.gia = gia;
     this.soluong = soluong;
     this.thanhtien = soluong * gia;
@@ -56,11 +57,19 @@ public class giohangbean {
   }
 
   public long getThanhtien() {
-    return soluong * gia;
+    return thanhtien;
   }
 
   public void setThanhtien(long thanhtien) {
     this.thanhtien = thanhtien;
+  }
+
+  public String getAnh() {
+    return anh;
+  }
+
+  public void setAnh(String anh) {
+    this.anh = anh;
   }
 
 

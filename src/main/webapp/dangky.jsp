@@ -28,25 +28,34 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="ht">Họ tên</label>
-				    <input name="txtht" type="text" class="form-control" id="ht" placeholder="Password">
+				    <input name="txtht" type="text" class="form-control" id="ht" placeholder="Họ tên">
 				  </div>
 				  <div class="form-group">
 				    <label for="dc">Địa chỉ</label>
-				    <input name="txtdc" type="text" class="form-control" id="dc" placeholder="Password">
+				    <input name="txtdc" type="text" class="form-control" id="dc" placeholder="Địa chỉ">
 				  </div>
 				  <div class="form-group">
 				    <label for="sdt">Số điện thoại</label>
-				    <input name="txtsdt" type="text" class="form-control" id="sdt" placeholder="Password">
+				    <input name="txtsdt" type="text" class="form-control" id="sdt" placeholder="Số điện thoại">
 				  </div>
 				  <div class="form-group">
 				    <label for="email">Email</label>
-				    <input name="txtemail" type="text" class="form-control" id="email" placeholder="Password">
+				    <input name="txtemail" type="email" class="form-control" id="email" placeholder="Email">
 				  </div>
 				  <button name="butt" type="submit" class="btn btn-default">Submit</button>
 				</form>
+				<hr>
+				<button class="btn btn-default"><a href="dangnhap.jsp">Đăng nhập</a></button>
 			</td>
+			
 		</tr>
+		
+	
+		
+		
 	</table>
+	
+	
 	
 
 </body>

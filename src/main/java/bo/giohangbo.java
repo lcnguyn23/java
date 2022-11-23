@@ -6,13 +6,13 @@ import bean.giohangbean;
 public class giohangbo {
   public ArrayList<giohangbean> ds = new ArrayList<giohangbean>();
 
-  public void Them(String masach, String tensach, long gia, long soluong) {
+  public void Them(String masach, String tensach, String anh, long gia, long soluong) {
     for (giohangbean h : ds)
       if (h.getMasach().equals(masach)) {
         h.setSoluong(h.getSoluong() + soluong);
         return;
       }
-    ds.add(new giohangbean(masach, tensach, gia, soluong));
+    ds.add(new giohangbean(masach, tensach, anh, gia, soluong));
   }
 
   public long TongTien() {

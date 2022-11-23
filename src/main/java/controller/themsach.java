@@ -44,7 +44,7 @@ public class themsach extends HttpServlet {
     }
 
     gh = (giohangbo) session.getAttribute("gio");
-    gh.Them(maSach, tenSach, gia, 1);
+    gh.Them(maSach, tenSach, anh, gia, 1);
     session.setAttribute("gio", gh);
 
     response.sendRedirect("htgioController");

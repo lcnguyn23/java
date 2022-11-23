@@ -5,6 +5,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="bo.loaibo"%>
 <%@page import="bo.giohangbo"%>
+<%@page import="bean.khachhangbean"%>
+
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -32,23 +34,24 @@
 		      	<% } else { %>
 		      	<li class="active"><a href="htgioController">Giỏ hàng (<%=request.getAttribute("tongSach")%>)</a></li>
 		      	<%} %>
-				<li><a href="#">Thanh toán</a></li>
-				<li><a href="#">Lịch sử mua hàngg</a></li>
+				<li><a href="thanhtoanController">Thanh toán</a></li>
+				<li><a href="lichsuController">Lịch sử mua hàng</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<%
-				if (session.getAttribute("dn") != null) {
+				if (session.getAttribute("kh") != null) {
 				%>
 				<li><a href="logout"><span
 						class="glyphicon glyphicon-user"></span> Logout</a></li>
 
 				<li><a href="dangnhap.jsp"> <span
-						class="glyphicon glyphicon-log-in"></span> Hi: <%=session.getAttribute("dn")%>
+						class="glyphicon glyphicon-log-in"></span> Hi: <%khachhangbean kh = (khachhangbean)session.getAttribute("kh");
+						out.print(kh.getHoten());%>
 				</a></li>
 				<%
 				} else {
 				%>
-				<li><a href="logout"><span
+				<li><a href="dangky.jsp"><span
 						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
 				<li><a href="dangnhap.jsp"> <span
@@ -91,6 +94,7 @@
 					%>
 					<tr>
 						<td><input type="checkbox" name="dachon" value="<%=h.getMasach()%>"></td>
+						<td><img src="<%=h.getAnh()%>" width="50" height="70"></td>
 						<td><%=h.getMasach()%></td>
 						<td><%=h.getTensach()%></td>
 						<td><%=h.getGia()%></td>
@@ -128,6 +132,9 @@
 				
 					<input name="btnxoadachon" type="submit" value="Xóa đã chọn">
 				</form>
+				<form action="datmuaController" method="post">
+					<button name="abc" type="submit" value="xoacheck">Đặt mua</button>
+				</form> 
 			</td>
 			<td width="200" valign="top">
 				<form action="htsachController" method="get">

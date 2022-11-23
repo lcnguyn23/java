@@ -2,7 +2,7 @@ package bean;
 
 public class khachhangbean {
 
-  private int makh;
+  private long makh;
   private String hoten;
   private String diachi;
   private String sodt;
@@ -15,7 +15,7 @@ public class khachhangbean {
     // TODO Auto-generated constructor stub
   }
 
-  public khachhangbean(int makh, String hoten, String diachi, String sodt, String email,
+  public khachhangbean(long makh, String hoten, String diachi, String sodt, String email,
       String tendn, String pass) {
     super();
     this.makh = makh;
@@ -27,11 +27,11 @@ public class khachhangbean {
     this.pass = pass;
   }
 
-  public int getMakh() {
+  public long getMakh() {
     return makh;
   }
 
-  public void setMakh(int makh) {
+  public void setMakh(long makh) {
     this.makh = makh;
   }
 

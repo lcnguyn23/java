@@ -28,13 +28,13 @@
 		<div class="container-fluid">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="htsachController">Trang chủ</a></li>
+				<li><a href="htsachController">Trang chủ</a></li>
 				<%if(request.getAttribute("tongSach") == null ) {%>
 		        <li><a href="htgioController">Giỏ hàng (0)</a></li>
 		      	<% } else { %>
 		      	<li><a href="htgioController">Giỏ hàng (<%=request.getAttribute("tongSach")%>)</a></li>
 		      	<%} %>
-				<li><a href="thanhtoanController">Thanh toán</a></li>
+				<li class="active"><a href="thanhtoanController">Thanh toán</a></li>
 				<li><a href="lichsuController">Lịch sử mua hàng</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -51,7 +51,7 @@
 				<%
 				} else {
 				%>
-				<li><a href="dangky.jsp"><span
+				<li><a href="logout"><span
 						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
 				<li><a href="dangnhap.jsp"> <span
@@ -65,76 +65,38 @@
 	<table width="1000" align="center">
 		<tr>
 			<td width="200" valign="top">
-				<table>
-					<%
-					ArrayList<loaibean> dsloai = new ArrayList<>();
-					if (request.getAttribute("dsloai") != null) {
-					  dsloai = (ArrayList<loaibean>) request.getAttribute("dsloai");
-					} 
-					for (loaibean l : dsloai) {
-					%>
-					<tr>
-						<td><a href="htsachController?ml=<%=l.getMaloai()%>"> <%=l.getTenloai()%>
-						</a></td>
-					</tr>
-					<%
-					}
-					%>
-				</table>
+				
 			</td>
-			<td width="600" valign="top">
-				<table class="table">
-
+			<td width="800" valign="top">
+				<table class="table table-hover">
 					<%
-					ArrayList<sachbean> dssach = new ArrayList<>();
-					if (request.getAttribute("dssach") != null) {
-					  dssach = (ArrayList<sachbean>) request.getAttribute("dssach");
-					}
-					int n = dssach.size();
-					%>
-					<h4>Số mẫu sách: <%=n %></h4>
-					
-					<% 
-					for (int i = 0; i < n; i++) {
-					  sachbean s = dssach.get(i);
+					giohangbo gh = (giohangbo) session.getAttribute("gio");
+					long tongtien = 0;
+					if (gh != null) {
+					  for (giohangbean h : gh.ds) {
 					%>
 					<tr>
-						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%>
-							<br> <%=s.getGia()%> <br> <a
-							href="themsach?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>&anh=<%=s.getAnh()%>">
-								<img src="buynow.jpg">
-						</a>
-							<hr></td>
-						<%
-						i++;
-						if (i < n) {
-						  s = dssach.get(i);
-						%>
-						<td><img src="<%=s.getAnh()%>"> <br> <%=s.getTensach()%>
-							<br> <%=s.getGia()%> <br> <a
-							href="themsach?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>&anh=<%=s.getAnh()%>">
-								<img src="buynow.jpg">
-						</a>
-							<hr></td>
-						<%
-						}
-						%>
-
+						<td><img src="<%=h.getAnh()%>" width="50" height="70"></td>
+						<td><%=h.getMasach()%></td>
+						<td><%=h.getTensach()%></td>
+						<td><%=h.getGia()%></td>
+						<td><%=h.getSoluong()%></td>
+						<td><%=h.getThanhtien()%></td>
 					</tr>
+
 					<%
+					tongtien += h.getThanhtien();
+					}
 					}
 					%>
 				</table>
+				<form action="thanhtoanController" method="post">
+					<button name="abc" type="submit" value="mua">Thanh toán</button>
+				</form> 
 			</td>
 			
 			<td width="200" valign="top">
-				<form action="htsachController" method="get">
-					<input class="form-control" name="txttk" type="text" value=""
-						placeholder="Tim kiem"> <br> <input
-						class="btn-primary" name="buttdn" type="submit" value="Search">
-
-				</form>
-
+				
 			</td>
 		</tr>
 	</table>

@@ -31,7 +31,7 @@ public class logout extends HttpServlet {
       throws ServletException, IOException {
     // TODO Auto-generated method stub
     HttpSession session = request.getSession();
-    session.removeAttribute("dn");
+    session.removeAttribute("kh");
     response.sendRedirect("htsachController");
   }
 

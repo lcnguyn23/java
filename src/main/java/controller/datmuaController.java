@@ -7,20 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import bean.giohangbean;
 import bean.khachhangbean;
-import bo.khachhangbo;
+import bo.chitietbo;
+import bo.giohangbo;
+import bo.hoadonbo;
 
 /**
- * Servlet implementation class dangky
+ * Servlet implementation class datmuaController
  */
-@WebServlet("/dangky")
-public class dangky extends HttpServlet {
+@WebServlet("/datmuaController")
+public class datmuaController extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   /**
    * @see HttpServlet#HttpServlet()
    */
-  public dangky() {
+  public datmuaController() {
     super();
     // TODO Auto-generated constructor stub
   }
@@ -33,24 +36,21 @@ public class dangky extends HttpServlet {
       throws ServletException, IOException {
     // TODO Auto-generated method stub
     HttpSession session = request.getSession();
-    String un = request.getParameter("txtun");
-    String pass = request.getParameter("txtpass");
-    String ht = request.getParameter("txtht");
-    String dc = request.getParameter("txtdc");
-    String sdt = request.getParameter("txtsdt");
-    String email = request.getParameter("txtemail");
-
-    if (un != null && pass != null && ht != null && dc != null) {
-      khachhangbo khbo = new khachhangbo();
-      if (khbo.Kiemtra(un, pass) != 0) {
-        khbo.ThemKH(ht, dc, sdt, email, un, pass);
-        khachhangbean kh = khbo.ktdn(un, pass);
-        session.setAttribute("kh", kh);
-        response.sendRedirect("htsachController");
+    khachhangbean kh = (khachhangbean) session.getAttribute("kh");
+    if (kh == null)
+      response.sendRedirect("ktdn");
+    else {
+      giohangbo gh = (giohangbo) session.getAttribute("gio");
+      hoadonbo hdbo = new hoadonbo();
+      chitietbo ctbo = new chitietbo();
+      hdbo.Them(kh.getMakh());
+      long maxhd = hdbo.getmaxhd();
+      for (giohangbean g : gh.ds) {
+        // System.out.println(g.getMasach() +" abc");
+        ctbo.Them(g.getMasach().trim(), g.getSoluong(), maxhd);
       }
+      response.sendRedirect("thanhtoanController");
     }
-
-
 
   }
 

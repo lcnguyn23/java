@@ -37,7 +37,7 @@ public class suaxoaall extends HttpServlet {
 
     if (request.getParameter("btnsua") != null) {
       long soluong = Long.parseLong(request.getParameter("txtsl"));
-      gh.Them(masach, "", 0, soluong);
+      gh.Them(masach, "", "", 0, soluong);
     } else
       gh.Xoa(masach);
 

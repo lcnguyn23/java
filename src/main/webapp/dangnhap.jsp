@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -28,6 +28,8 @@
 				  </div>
 				  <button name="butt" type="submit" class="btn btn-default">Submit</button>
 				</form>
+				<hr>
+				<button class="btn btn-default"><a href="dangky.jsp">Đăng ký</a></button>
 			</td>
 		</tr>
 	</table>
