@@ -93,10 +93,7 @@
 				<form action="thanhtoanController" method="post">
 					<button name="abc" type="submit" value="mua" class="ttbtn">Thanh toán</button>
 				</form> 
-				<%
-				if (request.getParameter("kt") != null) {%>
-				<h4>Thanh toán thành công!</h4>
-				<%}%>				
+								
 			</td>
 			
 			<td width="200" valign="top">

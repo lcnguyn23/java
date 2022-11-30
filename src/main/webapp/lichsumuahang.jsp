@@ -76,7 +76,6 @@
 					  dsls = (ArrayList<lichsubean>) request.getAttribute("ls");
 					%>
 					<tr>
-						<td>Mã khách hàng</td>
 						<td>Tên sách</td>
 						<td>Số lượng mua</td>
 						<td>Giá</td>
@@ -86,7 +85,6 @@
 					</tr>
 					<% for (lichsubean ls : dsls) {%>
 					<tr>
-						<td><%=ls.getMakh()%></td>
 						<td><%=ls.getTensach()%></td>
 						<td><%=ls.getSoluongmua()%></td>
 						<td><%=ls.getGia()%></td>

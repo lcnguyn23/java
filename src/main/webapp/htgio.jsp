@@ -84,7 +84,6 @@
 			</td>
 
 			<td width="600" valign="top">
-			<form action="xoadachon" method="post">
 				<table class="table table-hover">
 					<%
 					giohangbo gh = (giohangbo) session.getAttribute("gio");
@@ -102,8 +101,8 @@
 						<td>
 							<form action="suaxoaall?ms=<%=h.getMasach()%>" method="post">
 								<input name="txtsl" type="number" min="0" style="width: 50px;">
-								<input name="btnsua" type="submit" value="Cập nhật"> <input
-									name="btnxoa" type="submit" value="Xóa">
+								<input name="btnsua" type="submit" value="Cập nhật"> 
+								<input name="btnxoa" type="submit" value="Xóa">
 							</form>
 						</td>
 						<td><%=h.getThanhtien()%></td>
@@ -130,8 +129,6 @@
 
 				</form>
 				
-					<input name="btnxoadachon" type="submit" value="Xóa đã chọn">
-				</form>
 				<form action="datmuaController" method="post">
 					<button name="abc" type="submit" value="xoacheck">Đặt mua</button>
 				</form> 
