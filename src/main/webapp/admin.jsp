@@ -31,7 +31,7 @@
 		<div class="container-fluid">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="htsachController">Trang chủ</a></li>
+				<li class="active"><a href="adminController">Trang chủ</a></li>
 		        <li><a href="loaiadminController">Quản lý loại</a></li>
 		      	<li><a href="sachadminController">Quản lý sách</a></li>
 				<li><a href="xacnhanController">Xác nhận</a></li>
@@ -43,7 +43,7 @@
 				<%
 				if (session.getAttribute("admin") != null) {
 				%>
-				<li><a href=""> <span class="glyphicon glyphicon-log-in"></span> 
+				<li><a href="dangnhapadmin.jsp"> <span class="glyphicon glyphicon-log-in"></span> 
 						Hi: <%dangnhapadminbean dn = (dangnhapadminbean)session.getAttribute("admin");
 						out.print(dn.getTendn());%>
 				</a></li>

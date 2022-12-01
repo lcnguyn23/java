@@ -81,7 +81,7 @@
 						<td>Giá</td>
 						<td>Thành tiền</td>
 						<td>Ngày mua</td>
-					
+						<td>Trạng thái</td>
 					</tr>
 					<% for (lichsubean ls : dsls) {%>
 					<tr>
@@ -90,6 +90,7 @@
 						<td><%=ls.getGia()%></td>
 						<td><%=ls.getThanhtien()%></td>
 						<td><%=ls.getNgaymua() %></td>
+						<td><%out.print((ls.getDamua()==1)?"Đã xác nhận":"Chờ xác nhận");%></td>
 					</tr>
 					
 					

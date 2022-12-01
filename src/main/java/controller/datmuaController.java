@@ -50,7 +50,9 @@ public class datmuaController extends HttpServlet {
         ctbo.Them(g.getMasach().trim(), g.getSoluong(), maxhd);
       }
 
-      response.sendRedirect("thanhtoan.jsp");
+      // response.sendRedirect("thanhtoan.jsp");
+
+      response.sendRedirect("lichsuController");
     }
 
   }

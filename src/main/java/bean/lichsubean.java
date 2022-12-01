@@ -10,6 +10,7 @@ public class lichsubean {
   private long gia;
   private long thanhtien;
   private Date ngaymua;
+  private int damua;
 
   public lichsubean() {
     super();
@@ -17,7 +18,7 @@ public class lichsubean {
   }
 
   public lichsubean(long makh, String tensach, long soluongmua, long gia, long thanhtien,
-      Date ngaymua) {
+      Date ngaymua, int damua) {
     super();
     this.makh = makh;
     this.tensach = tensach;
@@ -25,6 +26,7 @@ public class lichsubean {
     this.gia = gia;
     this.thanhtien = thanhtien;
     this.ngaymua = ngaymua;
+    this.damua = damua;
   }
 
   public long getMakh() {
@@ -74,6 +76,15 @@ public class lichsubean {
   public void setNgaymua(Date ngaymua) {
     this.ngaymua = ngaymua;
   }
+
+  public int getDamua() {
+    return damua;
+  }
+
+  public void setDamua(int damua) {
+    this.damua = damua;
+  }
+
 
 
 }

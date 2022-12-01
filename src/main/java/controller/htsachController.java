@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import bean.khachhangbean;
 import bean.loaibean;
 import bean.sachbean;
 import bo.loaibo;
@@ -46,16 +47,20 @@ public class htsachController extends HttpServlet {
 
     String ml = request.getParameter("ml");
     String key = request.getParameter("txttk");
+    khachhangbean kh = (khachhangbean) session.getAttribute("kh");
+    if (kh == null)
+      response.sendRedirect("ktdn");
+    else {
+      if (ml != null)
+        dssach = sbo.TimMa(ml);
+      else if (key != null)
+        dssach = sbo.Tim(key);
 
-    if (ml != null)
-      dssach = sbo.TimMa(ml);
-    else if (key != null)
-      dssach = sbo.Tim(key);
-
-    request.setAttribute("dsloai", dsloai);
-    request.setAttribute("dssach", dssach);
-    RequestDispatcher rd = request.getRequestDispatcher("htsach.jsp");
-    rd.forward(request, response);
+      request.setAttribute("dsloai", dsloai);
+      request.setAttribute("dssach", dssach);
+      RequestDispatcher rd = request.getRequestDispatcher("htsach.jsp");
+      rd.forward(request, response);
+    }
   }
 
   /**

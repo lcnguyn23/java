@@ -59,8 +59,16 @@
 
 		</div>
 	</nav>
+	
 	<table width="1000" align="center">
 		<tr>
+			<td width="200" valign="top">
+				<table>
+					
+				</table>
+			</td>
+			<td width="2000" valign="top">
+				<table class="table">
 					<%
 					ArrayList<xacnhanbean> dsxn = new ArrayList<>();
 					if (request.getAttribute("dsxn") != null) {
@@ -74,10 +82,10 @@
 						<td>Giá</td>
 						<td>Thành tiền</td>
 						<td>Ngày mua</td>
-					
 					</tr>
 					<% for (xacnhanbean ds : dsxn) {%>
 					<tr>
+					<form action="xacnhanhoadon?mc=<%=ds.getMacthd() %>" method="post">
 						<td><%=ds.getMacthd()%></td>
 						<td><%=ds.getMahd()%></td>
 						<td><%=ds.getHoten()%></td>
@@ -85,11 +93,19 @@
 						<td><%=ds.getGia()%></td>
 						<td><%=ds.getThanhtien()%></td> 
 						<td><%=ds.getNgaymua()%></td>
+						<td><input name="butXacnhan" type="submit" value="Xác nhận"></td>
+					</form>
 					</tr>
 					
 					
 					<%} %>
-			</tr>
+				</table>
+			</td>
+			
+			<td width="200" valign="top">
+				
+			</td>
+		</tr>
 	</table>
 </body>
 </html>

@@ -7,21 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import bean.khachhangbean;
-import bo.chitietbo;
-import bo.hoadonbo;
+import dao.xacnhandao;
 
 /**
- * Servlet implementation class thanhtoanController
+ * Servlet implementation class xacnhanhoadon
  */
-@WebServlet("/thanhtoanController")
-public class thanhtoanController extends HttpServlet {
+@WebServlet("/xacnhanhoadon")
+public class xacnhanhoadon extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   /**
    * @see HttpServlet#HttpServlet()
    */
-  public thanhtoanController() {
+  public xacnhanhoadon() {
     super();
     // TODO Auto-generated constructor stub
   }
@@ -34,17 +32,17 @@ public class thanhtoanController extends HttpServlet {
       throws ServletException, IOException {
     // TODO Auto-generated method stub
     HttpSession session = request.getSession();
-    khachhangbean kh = (khachhangbean) session.getAttribute("kh");
-    if (kh == null)
-      response.sendRedirect("ktdn");
-    else {
-      hoadonbo hdbo = new hoadonbo();
-      chitietbo ctbo = new chitietbo();
-      long makh = kh.getMakh();
-      long maxhd = hdbo.getmaxhd();
-      hdbo.Thanhtoan(maxhd);
-      response.sendRedirect("thanhtoan.jsp?kt=1");
+    xacnhandao xndao = new xacnhandao();
+
+    if (request.getParameter("butXacnhan") != null) {
+      String mact = request.getParameter("mc");
+      if (mact != null) {
+        long macthd = Long.parseLong(mact);
+        xndao.Xacnhan(macthd);
+        response.sendRedirect("xacnhanController");
+      }
     }
+
   }
 
   /**

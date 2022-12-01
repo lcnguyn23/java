@@ -16,7 +16,7 @@ public class lichsudao {
       KetNoi kn = new KetNoi();
       kn.KetNoi();
       // b2: lay du lieu ve
-      String sql = "select * from VLS where makh=? and damua = 1";
+      String sql = "select * from VLS where makh=?";
       PreparedStatement cmd = kn.cn.prepareStatement(sql);
       cmd.setLong(1, makh);
       ResultSet rs = cmd.executeQuery();
@@ -29,8 +29,8 @@ public class lichsudao {
         long gia = rs.getLong("gia");
         long thanhtien = rs.getLong("ThanhTien");
         Date ngaymua = rs.getDate("NgayMua");
-
-        ds.add(new lichsubean(makh, tensach, soluongmua, gia, thanhtien, ngaymua));
+        int damua = rs.getInt("damua");
+        ds.add(new lichsubean(makh, tensach, soluongmua, gia, thanhtien, ngaymua, damua));
 
       }
       // b4: dong ket noi
@@ -42,6 +42,7 @@ public class lichsudao {
       return null;
     }
   }
+
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
